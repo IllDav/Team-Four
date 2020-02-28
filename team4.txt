@@ -1,4 +1,8 @@
 Git gyorstalpal�: http://math.bme.hu/~balazs/git/gitcml.html
+Git Teletype: 1 fájlt többen tudnak szerkeszteni egy időben
+https://atom.io/packages/teletype
+
+
 
 AAA
 aasfdas
