@@ -1,0 +1,22 @@
+
+.start {
+    float: center;
+    height: 90%;
+    border: 1px solid grey;
+    margin: 5px;
+	padding: 10px;
+    text-align: center;
+}
+
+
+.start button {
+    width: 50%;
+    height: 1.5em;
+    margin-top: 1em;
+}
+
+.canvas {
+    float: right;
+    width: 90%;
+}
+
