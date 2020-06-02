@@ -5,11 +5,12 @@ export class InputScreen extends Application {
     constructor(canvas) {
         super(canvas);
 		
-		this.cleaner('appStart');
         this.initialize();
     }
 
     initialize() {
+		
+		divMerleg = document.getElementById('merleg');
 		
         const h1Elem = document.createElement('h1');
         this.canvas.appendChild(h1Elem);
@@ -17,13 +18,15 @@ export class InputScreen extends Application {
 		
 		const p1 = document.createElement('p');
         this.canvas.appendChild(p1);
-        p1.textContent = '\nItt lesz a mérleg';
+        p1.textContent = '\nMérleg';
 		
-		const p2 = document.createElement('p');
+		/*Itt kéne láthatóvá tenni a mérleg div-jét
+		
+		/* const p2 = document.createElement('p');
         this.canvas.appendChild(p2);
-        p2.textContent = '\nMellette az eredménykimutatás';
+        p2.textContent = '\n Itt az eredménykimutatás'; */
 		
-
+		
 
         const evaluate = document.createElement('button');
         this.canvas.appendChild(evaluate);
@@ -31,7 +34,11 @@ export class InputScreen extends Application {
         evaluate.id = 'eval';
 		
 		let next;
-		const evalButton = document.getElementById('eval');
+		const evalEvent1 = document.getElementById('eval');
+		evalButton.addEventListener('click', function() {/*egyszer itt a html-ben megadott inputokat el kéne menteni változókba, vagy itt, vagy az Evaluation.js-ben, ez még nem állt össze});*/
+		
+		/*ez csak léptet a kövi oldalra*/
+		const evalEvent2 = document.getElementById('eval');
 		evalButton.addEventListener('click', function() {
         next = new Evaluation(document.getElementById('canvas'));
 		});
