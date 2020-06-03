@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Application dashboard</title>
+        <title>Firm Valuation</title>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" href="./style.css"/>
         <script type="module" src="./main.js"></script>
@@ -14,28 +14,34 @@
 		<header class="start">
             <img id="logo" src="220px-Stratton_Oakmont_Logo-removebg-preview.png" alt="Logo">
             <h1 class="appname">Valuation website</h1>
-            <button class="btn btn-outline-dark" id="start">Start</button>
+            <button class="btn btn-outline-dark" id="start" onclick="showFunc()">Start</button>
+			<script>
+			function showFunc() {
+				document.getElementById("merleg").style.display = "block";
+			}
+			</script>
         </header>
 
 		<div id="canvas" class="canvas col-12">
 
-			<div class="invisible" id="merleg">
-				<p>Forgóeszközök: </p>
-				<input id="forgEszk"> </input>
-				<p>Értékpapírok: </p>
-				<input id="ertPap"> </input>
-				<p>Pénzeszközök: </p>
-				<input id="penzEszk"> </input>
-				<p>Saját tőke: </p>
-				<input id="sajToke"> </input>
-				<p>Adózott eredmény: </p>
-				<input id="adEredm"> </input>
-				<p>Kötelezettségek: </p>
-				<input id="kotel"> </input>
-				<p>Hosszú lejáratú kötelezettségek: </p>
-				<input id="hosszLejKot"> </input>
-				<p>Rövid lejáratú kötelezettségek: </p>
-				<input id="rovLejKot"> </input>
+			<div class="merleg col-4" style="display: none" id="merleg">
+			  <h5>Add meg a szükséges adatokat a vállalkozás MÉRLEGE alapján!</h5>
+				<label>Forgóeszközök: </label>
+				<input id="forgEszk"> <br></input>
+				<label>Értékpapírok: </label>
+				<input id="ertPap"> <br></input>
+				<label>Pénzeszközök: </label>
+				<input id="penzEszk"> <br></input>
+				<label>Saját tőke: </label>
+				<input id="sajToke"> <br></input>
+				<label>Adózott eredmény: </label>
+				<input id="adEredm"> <br></input>
+				<label>Kötelezettségek: </label>
+				<input id="kotel"> <br></input>
+				<label>Hosszú lejáratú kötelezettségek: </label>
+				<input id="hosszLejKot"> <br></input>
+				<label>Rövid lejáratú kötelezettségek: </label>
+				<input id="rovLejKot"> <br></input>
 			</div>
 		</div>
 

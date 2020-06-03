@@ -10,9 +10,9 @@ export class Application {
         this.canvas = canvas;
 
         // Clean canvas before loading app
-        while (canvas.lastChild) {
-            canvas.removeChild(canvas.lastChild);
-        }
+        // while (canvas.lastChild) {
+            // canvas.removeChild(canvas.lastChild);
+        // }
     }
 
     /**

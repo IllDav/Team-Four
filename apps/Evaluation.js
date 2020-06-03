@@ -11,11 +11,7 @@ export class Evaluation extends Application {
     initialize() {
         const h11 = document.createElement('h1');
         this.canvas.appendChild(h11);
-        h11.textContent = 'Itt lesz a végső értékelés';
-		
-		const p1 = document.createElement('p');
-        this.canvas.appendChild(p1);
-        p1.textContent = 'asdasdasdasdasdasdasdasdasdasdasasdasdasdasdasdadasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdadasdasdasdasdasdasdasdasdasdasdasdasd';
+        h11.textContent = 'Értékelés';
 		
 		const save = document.createElement('button');
         this.canvas.appendChild(save);
