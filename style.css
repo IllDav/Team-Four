@@ -1,18 +1,44 @@
+@font-face {
+  font-family: 'Sarala';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Sarala'), local('Sarala-Regular'), url(https://fonts.gstatic.com/s/sarala/v4/uK_y4riEZv4o1w9hAxcSAv4.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
 
-.start {
-    float: center;
-    height: 90%;
-    border: 1px solid grey;
-    margin: 5px;
-	padding: 10px;
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Sarala', sans-serif;
+    font-style: normal;
+}
+
+.headhero{
+    background-image: url("marten-bjork-6dW3xyQvcYE-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 40px;
+    color: black;
     text-align: center;
 }
 
+#logo{
+    height: 90px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+}
 
-.start button {
-    width: 50%;
-    height: 1.5em;
-    margin-top: 1em;
+.headhero h1{
+  padding-top: 100px;
+  font-size: 50px;
+    text-transform: uppercase;
+}
+
+.headhero button {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
 }
 
 .canvas {
