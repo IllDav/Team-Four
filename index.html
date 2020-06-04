@@ -18,32 +18,95 @@
 			<script>
 			function showFunc() {
 				document.getElementById("merleg").style.display = "block";
+				document.getElementById("eredmenykimutatas").style.display = "block";
 			}
 			</script>
         </header>
 
-		<div id="canvas" class="canvas col-12">
+		<div id="canvas" class="canvas col-12"> 
 
 			<div class="merleg col-4" style="display: none" id="merleg">
 			  <h5>Add meg a szükséges adatokat a vállalkozás MÉRLEGE alapján!</h5>
-				<label>Forgóeszközök: </label>
-				<input id="forgEszk"> <br></input>
-				<label>Értékpapírok: </label>
-				<input id="ertPap"> <br></input>
-				<label>Pénzeszközök: </label>
-				<input id="penzEszk"> <br></input>
-				<label>Saját tőke: </label>
-				<input id="sajToke"> <br></input>
-				<label>Adózott eredmény: </label>
-				<input id="adEredm"> <br></input>
-				<label>Kötelezettségek: </label>
-				<input id="kotel"> <br></input>
-				<label>Hosszú lejáratú kötelezettségek: </label>
-				<input id="hosszLejKot"> <br></input>
-				<label>Rövid lejáratú kötelezettségek: </label>
-				<input id="rovLejKot"> <br></input>
-			</div>
-		</div>
+                
+                <table>
+                    <tr>
+                        <th>Forgóeszközök</th>
+                        <th><input type="number" id="forgEszk"></th>
+                    </tr>
+                    <tr>
+                        <th>Értékpapírok</th>
+                        <th><input type="number" id="ertPap"></th>
+                    </tr>
+                    <tr>
+                        <th>Pénzeszközök</th>
+                        <th><input type="number" id="penzEszk"></th>
+                    </tr>
+                    <tr>
+                        <th>Saját tőke</th>
+                        <th><input type="number" id="sajToke"></th>
+                    </tr>
+                    <tr>
+                        <th>Adózott eredmény</th>
+                        <th><input type="number" id="adEredm"></th>
+                    </tr>
+                    <tr>
+                        <th>Kötelezettségek</th>
+                        <th><input type="number" id="kotel"></th>
+                    </tr>
+                    <tr>
+                        <th>Hosszú lejáratú kötelezettségek</th>
+                        <th><input type="number" id="hosszLejKot"></th>
+                    </tr>
+                    <tr>
+                        <th>Rövid lejáratú kötelezettségek</th>
+                        <th><input type="number" id="rovLejKot"></th>
+                    </tr>
+                </table>
+               
+			 </div>
+            </div>
+            
+            <div id="canvas" class="canvas col-12">
+                <div class="merleg col-4" style="display: none" id="eredmenykimutatas">
+                    <table>
+                        <caption>Add meg a szükséges adatokat!</caption>
+                        <tr>
+                            <th>Értékesítés nettó árbevétele:</th>
+                            <th><input type="number" id="ert_net_arb"></th>
+                        </tr>
+                         <tr>
+                            <th>Anyagköltség</th>
+                            <th><input type="number" id="anyag_kolt"></th>
+                        </tr>
+                         <tr>
+                            <th>Igénybevett szolgáltatások</th>
+                            <th><input type="number" id="igenybe_szolg"></th>
+                        </tr>
+                         <tr>
+                            <th>Egyéb szolgáltatások</th>
+                            <th><input type="number" id="egyeb_szolg"></th>
+                        </tr>
+                         <tr>
+                            <th>Anyagjellegű ráfordítások</th>
+                            <th><input type="number" id="anyag_raford"></th>
+                        </tr>
+                         <tr>
+                            <th>Személyi jellegű ráfordítások</th>
+                            <th><input type="number" id="szemely_jel_raford"></th>
+                        </tr>
+                         <tr>
+                            <th>Üzemi (üzleti) tevékenység eredménye</th>
+                            <th><input type="number" id="uzem_eredmeny"></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        
+            <div class="merleg col-4" style="display: none" id="szamol">
+                <button onclick="myFunction()" >Számol</button>          
+                <p id="result"></p>
+            </div>
+		
 
     <footer class="page-footer font-small stylish-color-dark pt-4">
    <div class="container text-center text-md-left">
