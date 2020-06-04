@@ -22,11 +22,11 @@
 			}
 			</script>
         </header>
-
-		<div id="canvas" class="canvas col-12"> 
-
-			<div class="merleg col-4" style="display: none" id="merleg">
-			  <h5>Add meg a szükséges adatokat a vállalkozás MÉRLEGE alapján!</h5>
+	  
+		<div id="canvas" class="canvas"> 
+		  <div class="row maincontainer">
+			<div class="merleg col-5" style="display: none" id="merleg">
+			  <h6>Add meg az adatokat a MÉRLEG alapján!</h6>
                 
                 <table>
                     <tr>
@@ -62,14 +62,13 @@
                         <th><input type="number" id="rovLejKot"></th>
                     </tr>
                 </table>
-               
 			 </div>
-            </div>
-            
-            <div id="canvas" class="canvas col-12">
-                <div class="merleg col-4" style="display: none" id="eredmenykimutatas">
+			 
+			 <div class="eredmkimut col-7" style="display: none" id="eredmenykimutatas">
+			 
+				<h6>Add meg az adatokat az EREDMÉNYKIMUTATÁS alapján!</h6>
                     <table>
-                        <caption>Add meg a szükséges adatokat!</caption>
+                        
                         <tr>
                             <th>Értékesítés nettó árbevétele:</th>
                             <th><input type="number" id="ert_net_arb"></th>
@@ -100,14 +99,9 @@
                         </tr>
                     </table>
                 </div>
-            </div>
-        
-            <div class="merleg col-4" style="display: none" id="szamol">
-                <button onclick="myFunction()" >Számol</button>          
-                <p id="result"></p>
-            </div>
-		
-
+			 
+        </div>
+	  </div>
     <footer class="page-footer font-small stylish-color-dark pt-4">
    <div class="container text-center text-md-left">
      <div class="row">
