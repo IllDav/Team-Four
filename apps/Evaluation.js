@@ -51,35 +51,26 @@ export class Evaluation extends Application {
 		
 		
 		
-		//--------------------------------------ÚJ------------------------------------
-		
-		
-		
 		
 		const likv1_text = document.createElement('p');
         this.canvas.appendChild(likv1_text);
 		var l1_text = "";
 		
-		if(lik1 < 0.4)
-		{
+		if(lik1 < 0.4){
 			l1_text = "bla bla Likviditás rossz"; //ezek helyére egy szebben fogalmazott verzió kerül majd
 		}
-		else if(lik1 >= 0.4 && lik1 <=0.7)
-		{
+		else if(lik1 >= 0.4 && lik1 < 0.7){
 			l1_text = "bla bla Likviditás elfogadható";
 		}
-		else
-		{
+		else{
 			l1_text = "bla bla Likviditás jó";
 		}
         likv1_text.textContent = l1_text;
 		
+		
+		
+		
         
-		
-		//------------------------------------------ÚJ------------------------------------
-		
-		
-		
         const l2 = document.createElement('label'); 
         this.canvas.appendChild(l2);
         l2.textContent = 'Likviditás III.:';
