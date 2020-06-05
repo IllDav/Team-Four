@@ -51,7 +51,7 @@ body{
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
-    width: 90% 
+    width: 90%
 }
 
 /*TÁBLÁZAT (ADATMEGADÁS)*/
@@ -77,10 +77,16 @@ body{
 footer{
     display: block;
     height: auto;
-    background-color: #F0F0F0;
+    background-image: url("12aa.jpg");
     width: 100%;
 }
 
 footer p{
   font-size: 20px;
 }
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: F5F5F5;
+ }
+/* itt tudjátok, minden 2. sor színét változtatni*/
