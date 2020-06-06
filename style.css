@@ -61,7 +61,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
-   
+
 }
 
 #merleg{
@@ -95,3 +95,22 @@ footer p{
    background-color: F5F5F5;
  }
 /* itt tudjátok, minden 2. sor színét változtatni*/
+
+/*SCROLLBAR*/
+
+::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;}
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #727873;
+}
