@@ -38,9 +38,9 @@ export class Evaluation extends Application {
         let ossz_koltseg = document.getElementById("ossz_koltseg").value; 
 		
 		//Ez már a kiíratás, mindegyik mutatószámhoz kell majd egy label, és egy p, amibe kerül a százalékos érték
-		const l1 = document.createElement('label'); //megfelelő tag létrehozása
-        this.canvas.appendChild(l1);  //Hozzáfűzás a HTML-hez
-        l1.textContent = 'Likviditás I.:';  //Tartalmának megadása
+		const l1_label = document.createElement('label'); //megfelelő tag létrehozása
+        this.canvas.appendChild(l1_label);  //Hozzáfűzás a HTML-hez
+        l1_label.textContent = 'Likviditás I.:';  //Tartalmának megadása
 		
 		//Itt az értékek kiírása történik, hasonlóan mint felette
 		const likv1 = document.createElement('p');
@@ -48,12 +48,7 @@ export class Evaluation extends Application {
 		var lik1 = fEszk / rlk;
         likv1.textContent = (lik1 * 100).toFixed(2) + '%';
 		
-		
-		
-		
-		
 		const likv1_text = document.createElement('p');
-        this.canvas.appendChild(likv1_text);
 		var l1_text = "";
 		
 		if(lik1 < 0.4){
@@ -66,76 +61,187 @@ export class Evaluation extends Application {
 			l1_text = "bla bla Likviditás jó";
 		}
         likv1_text.textContent = l1_text;
+        this.canvas.appendChild(likv1_text);
 		
+        //---------------------------------------   
 		
-		
-		
-        
-        const l2 = document.createElement('label'); 
-        this.canvas.appendChild(l2);
-        l2.textContent = 'Likviditás III.:';
+        const l3_label = document.createElement('label'); 
+        this.canvas.appendChild(l3_label);
+        l3_label.textContent = 'Likviditás III.:';
         
         const likv3 = document.createElement('p');
         this.canvas.appendChild(likv3);
-        likv3.textContent = (((pEszk + ePapir) / rlk)*100).toFixed(2) + '%';  
+		var lik3 = (pEszk + ePapir) / rlk;
+        likv3.textContent = (lik3*100).toFixed(2) + '%';  
+		
+		const likv3_text = document.createElement('p');
+		var l3_text = "";
+		
+		if(lik3 < 0.4){
+			l3_text = "bla bla Likviditás rossz";
+		}
+		else if(lik3 >= 0.4 && lik3 < 0.7){
+			l3_text = "bla bla Likviditás elfogadható";
+		}
+		else{
+			l3_text = "bla bla Likviditás jó";
+		}
+        likv3_text.textContent = l3_text;
+        this.canvas.appendChild(likv3_text);
         //---------------------------------------    
         
-        const l3 = document.createElement('label'); 
-        this.canvas.appendChild(l3);
-        l3.textContent = 'Saját tőke aránya:';
+        const sta_label = document.createElement('label'); 
+        this.canvas.appendChild(sta_label);
+        sta_label.textContent = 'Saját tőke aránya:';
         
         const sta = document.createElement('p');
         this.canvas.appendChild(sta);
-        sta.textContent = ((sToke/osszF)*100).toFixed(2) + '%';
+		var s = sToke/osszF;
+        sta.textContent = (s*100).toFixed(2) + '%';
+		
+		const sta_text = document.createElement('p');
+        this.canvas.appendChild(sta_text);
+		var s_text = "";
+		
+		if(s < 0.3){
+			s_text = "bla bla STA rossz";
+		}
+		else if(s >= 0.3 && s < 0.6){
+			s_text = "bla bla STA elfogadható";
+		}
+		else{
+			s_text = "bla bla STA jó";
+		}
+        sta_text.textContent = s_text;
         //---------------------------------------     
         
-        const l4 = document.createElement('label'); 
-        this.canvas.appendChild(l4);
-        l4.textContent = 'Idegen tőke aránya:';
+        const ita_label = document.createElement('label'); 
+        this.canvas.appendChild(ita_label);
+        ita_label.textContent = 'Idegen tőke aránya:';
         
         const ita = document.createElement('p');
         this.canvas.appendChild(ita);
-        ita.textContent = ((kot/sToke)*100).toFixed(2) + '%';  
+		var i = kot/sToke;
+        ita.textContent = (i*100).toFixed(2) + '%';
+
+		const ita_text = document.createElement('p');
+        this.canvas.appendChild(ita_text);
+		var i_text = "";
+		
+		if(i < 0.3){
+			i_text = "bla bla ITA jó";
+		}
+		else if(i >= 0.3 && i < 0.7){
+			i_text = "bla bla ITA elfogadható";
+		}
+		else{
+			i_text = "bla bla ITA rossz";
+		}
+        ita_text.textContent = i_text;
+		
         //---------------------------------------    
         
-        const l5 = document.createElement('label'); 
-        this.canvas.appendChild(l5);
-        l5.textContent = 'Hosszú távú adósság:';
+        const hta_label = document.createElement('label'); 
+        this.canvas.appendChild(hta_label);
+        hta_label.textContent = 'Hosszú távú adósság:';
         
         const hta = document.createElement('p');
         this.canvas.appendChild(hta);
-		var h_st = hlk + sToke;
-        hta.textContent = ((hlk/(hlk + sToke))*100).toFixed(2) + '%';  
+		var ha = hlk/(hlk + sToke);
+        hta.textContent = (ha*100).toFixed(2) + '%';  
         
+		const hta_text = document.createElement('p');
+        this.canvas.appendChild(hta_text);
+		var ha_text = "";
+		
+		if(ha < 0.3){
+			ha_text = "bla bla HTA jó";
+		}
+		else if(ha >= 0.3 && ha < 0.6){
+			ha_text = "bla bla HTA elfogadható";
+		}
+		else{
+			ha_text = "bla bla HTA rossz";
+		}
+        hta_text.textContent = ha_text;
+		
         //--------------------------------------- 
         
-        const l6 = document.createElement('label'); 
-        this.canvas.appendChild(l6);
-        l6.textContent = 'Működési profithányad:';
+        const mph_label = document.createElement('label'); 
+        this.canvas.appendChild(mph_label);
+        mph_label.textContent = 'Működési profithányad:';
         
         const mph = document.createElement('p');
         this.canvas.appendChild(mph);
-        mph.textContent = ((uzem_eredmeny/ert_net_arb)*100).toFixed(2) + '%';  
+		var mp = uzem_eredmeny/ert_net_arb;
+        mph.textContent = (mp*100).toFixed(2) + '%';  
+		
+		const mph_text = document.createElement('p');
+        this.canvas.appendChild(mph_text);
+		var mp_text = "";
+		
+		if(mp < 0.3){
+			mp_text = "bla bla MPH rossz";
+		}
+		else if(mp >= 0.3 && mp < 0.6){
+			mp_text = "bla bla MPH elfogadható";
+		}
+		else{
+			mp_text = "bla bla MPH jó";
+		}
+        mph_text.textContent = mp_text;
         
        //---------------------------------------    
         
-        const l7 = document.createElement('label'); 
-        this.canvas.appendChild(l7);
-        l7.textContent = 'Nettó profithányad (ROS):';
+        const ros_label = document.createElement('label'); 
+        this.canvas.appendChild(ros_label);
+        ros_label.textContent = 'Nettó profithányad (ROS):';
         
         const ros = document.createElement('p');
         this.canvas.appendChild(ros);
-        ros.textContent = ((aEred/ert_net_arb)*100).toFixed(2) + '%';  
+		var rs = aEred/ert_net_arb;
+        ros.textContent = (rs*100).toFixed(2) + '%';
+		
+		const ros_text = document.createElement('p');
+        this.canvas.appendChild(ros_text);
+		var rs_text = "";
+		
+		if(rs < 0.3){
+			rs_text = "bla bla ROS rossz";
+		}
+		else if(rs >= 0.3 && rs < 0.6){
+			rs_text = "bla bla ROS elfogadható";
+		}
+		else{
+			rs_text = "bla bla ROS jó";
+		}
+        ros_text.textContent = rs_text;
         
         //---------------------------------------    
         
-        const l8 = document.createElement('label'); 
-        this.canvas.appendChild(l8);
-        l8.textContent = 'Eszközarányos adózott eredmény (ROA):';
+        const roa_label = document.createElement('label'); 
+        this.canvas.appendChild(roa_label);
+        roa_label.textContent = 'Eszközarányos adózott eredmény (ROA):';
         
         const roa = document.createElement('p');
         this.canvas.appendChild(roa);
-        roa.textContent = ((aEred/osszE)*100).toFixed(2) + '%';  
+		var ra = aEred/osszE;
+        roa.textContent = (ra*100).toFixed(2) + '%'; 
+
+		const roa_text = document.createElement('p');
+        this.canvas.appendChild(roa_text);
+		var ra_text = "";
+		
+		if(ra < 0.3){
+			ra_text = "bla bla ROA rossz";
+		}
+		else if(ra >= 0.3 && ra < 0.6){
+			ra_text = "bla bla ROA elfogadható";
+		}
+		else{
+			ra_text = "bla bla ROA jó";
+		}
+        roa_text.textContent = ra_text;
         
         //---------------------------------------    
         
@@ -145,7 +251,13 @@ export class Evaluation extends Application {
         
         const roe = document.createElement('p');
         this.canvas.appendChild(roe);
-        roe.textContent = ((aEred/sToke)*100).toFixed(2) + '%';  
+		var re = aEred/sToke;
+        roe.textContent = (re*100).toFixed(2) + '%';
+		
+		
+		
+		
+		
         
         //---------------------------------------    
         
@@ -155,7 +267,12 @@ export class Evaluation extends Application {
         
         const arbev_nyer = document.createElement('p');
         this.canvas.appendChild(arbev_nyer);
-        arbev_nyer.textContent = ((aEred/ert_net_arb)*100).toFixed(2) + '%';  
+		var any = aEred/ert_net_arb;
+        arbev_nyer.textContent = (any*100).toFixed(2) + '%';
+		
+		
+		
+		
         
         //---------------------------------------    
         
@@ -165,7 +282,12 @@ export class Evaluation extends Application {
         
         const anyag_rf = document.createElement('p');
         this.canvas.appendChild(anyag_rf);
-        anyag_rf.textContent = (((anyag_kolt + igenybe_szolg + egyeb_szolg)/ossz_koltseg)*100).toFixed(2) + '%';
+		var arf = (anyag_kolt + igenybe_szolg + egyeb_szolg)/ossz_koltseg;
+        anyag_rf.textContent = (arf*100).toFixed(2) + '%';
+		
+		
+		
+		
         
         //---------------------------------------    
         
@@ -175,7 +297,12 @@ export class Evaluation extends Application {
         
         const szemelyi_rf = document.createElement('p');
         this.canvas.appendChild(szemelyi_rf);
-        szemelyi_rf.textContent =  ((szemely_jel_raford/ossz_koltseg)*100).toFixed(2) + '%';  
+		var szrf = szemely_jel_raford/ossz_koltseg;
+        szemelyi_rf.textContent = (szrf*100).toFixed(2) + '%';
+		
+		
+		
+		
         
         //---------------------------------------    
             
