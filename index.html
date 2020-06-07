@@ -240,7 +240,6 @@
 
 </body>
 </html>
-S
 
 <script type="text/javascript">
      $("#save").click(function () {
@@ -254,4 +253,11 @@ S
          doc.addHTML(document.body, function () {
              doc.save('testpoc.pdf');
          });
-     });</script>
+     });
+     document.getElementById('save').onclick = function(){
+     	setTimeout(function(){
+     	window.location.href = 'index.html';
+        }, 2000);
+     	};
+
+   </script>
