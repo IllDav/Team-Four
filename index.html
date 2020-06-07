@@ -9,9 +9,12 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
     </head>
     <body>
-		<header class="start">
+		<header class="start" id="head">
             <img id="logo" src="220px-Stratton_Oakmont_Logo-removebg-preview.png" alt="Logo">
             <h1 class="appname">Valuation website</h1>
             <button class="btn btn-outline-dark" id="start" onclick="showFunc()">Start</button>
@@ -27,7 +30,7 @@
 		<div id="canvas" class="canvas">
 		  <div id="adatmegadas" class="row maincontainer">
 			<div class="merleg col-5" style="display: none" id="merleg">
-			  <h6>Add meg az adatokat a MÉRLEG alapján!</h6>
+			  <h6 id="merleg_head">Add meg az adatokat a MÉRLEG alapján!</h6>
 
                 <table class="table table-striped">
                     <tr>
@@ -62,11 +65,11 @@
                         <th>Rövid lejáratú kötelezettségek</th>
                         <th><input type="number" id="rovLejKot"></th>
                     </tr>
-					          <tr>
+					<tr>
                         <th>Összes eszköz</th>
                         <th><input type="number" id="osszEszk"></th>
                     </tr>
-					          <tr>
+					<tr>
                         <th>Összes forrás</th>
                         <th><input type="number" id="osszForr"></th>
                     </tr>
@@ -75,7 +78,7 @@
 
 			 <div class="eredmkimut col-6" style="display: none" id="eredmenykimutatas">
 
-				<h6>Add meg az adatokat az EREDMÉNYKIMUTATÁS alapján!</h6>
+				<h6 id="er_kim_head">Add meg az adatokat az EREDMÉNYKIMUTATÁS alapján!</h6>
                     <table class="table table-striped">
                         <tr>
                             <th>Értékesítés nettó árbevétele:</th>
@@ -113,72 +116,74 @@
                 </div>
 
         </div>
-
+        
         <div class="eredmenyek" id="eredmenyek" style="display: none">
-            <div class="mutatok" id="1_mutato">
-                 <p class="resulthead" id="likvid1Label"></p><br>
+            <div id="1_mutato">
+                 <p id="likvid1Label"></p>
                  <p id="likvid1Value"></p>
                  <p id="likvid1Valuation"></p>
             </div>
-            <div class="mutatok" id="2_mutato">
-				         <p class="resulthead" id="likvid3Label"></p><br>
+            <div id="2_mutato">
+				 <p id="likvid3Label"></p>
                  <p id="likvid3Value"></p>
                  <p id="likvid3Valuation"></p>
             </div>
-            <div class="mutatok" id="3_mutato">
-				         <p class="resulthead" id="staLabel"></p><br>
+            <div id="3_mutato">
+				 <p id="staLabel"></p>
                  <p id="staValue"></p>
                  <p id="staValuation"></p>
             </div>
-            <div class="mutatok" id="4_mutato">
-				         <p class="resulthead" id="itaLabel"></p><br>
+            <div id="4_mutato">
+				 <p id="itaLabel"></p>
                  <p id="itaValue"></p>
                  <p id="itaValuation"></p>
             </div>
-            <div class="mutatok" id="5_mutato">
-				         <p class="resulthead" id="htaLabel"></p><br>
+            <div id="5_mutato">
+				 <p id="htaLabel"></p>
                  <p id="htaValue"></p>
                  <p id="htaValuation"></p>
             </div>
-            <div class="mutatok" id="6_mutato">
-				         <p class="resulthead" id="mphLabel"></p><br>
+            <div id="6_mutato">
+				 <p id="mphLabel"></p>
                  <p id="mphValue"></p>
                  <p id="mphValuation"></p>
             </div>
-            <div class="mutatok" id="7_mutato">
-				         <p class="resulthead" id="nphLabel"></p><br>
+            <div id="7_mutato">
+				 <p id="nphLabel"></p>
                  <p id="nphValue"></p>
                  <p id="nphValuation"></p>
             </div>
-            <div class="mutatok" id="8_mutato">
-				         <p class="resulthead" id="roaLabel"></p><br>
+            <div id="8_mutato">
+				 <p id="roaLabel"></p>
                  <p id="roaValue"></p>
                  <p id="roaValuation"></p>
             </div>
-            <div class="mutatok" id="9_mutato">
-				         <p class="resulthead" id="roeLabel"></p><br>
+            <div id="9_mutato">
+				 <p id="roeLabel"></p>
                  <p id="roeValue"></p>
                  <p id="roeValuation"></p>
             </div>
-            <div class="mutatok" id="10_mutato">
-				         <p class="resulthead" id="anyLabel"></p><br>
+            <div id="10_mutato">
+				 <p id="anyLabel"></p>
                  <p id="anyValue"></p>
                  <p id="anyValuation"></p>
             </div>
-            <div class="mutatok" id="11_mutato">
-				         <p class="resulthead" id="ajrLabel"></p><br>
+            <div id="11_mutato">
+				 <p id="ajrLabel"></p>
                  <p id="ajrValue"></p>
                  <p id="ajrValuation"></p>
             </div>
-			      <div class="mutatok" id="12_mutato">
-				         <p class="resulthead" id="szjrLabel"></p><br>
+			<div id="12_mutato">
+				 <p id="szjrLabel"></p>
                  <p id="szjrValue"></p>
                  <p id="szjrValuation"></p>
             </div>
+            
+            <input type="button" value="metés" id="save" />      
         </div>
-
+            
 	  </div>
-    <footer class="page-footer font-small stylish-color-dark pt-4">
+    <footer id="footer" class="page-footer font-small stylish-color-dark pt-4">
         <div class="container text-center text-md-left">
             <div class="row">
 
@@ -205,9 +210,26 @@
                <p>1529 Budapest Kossuth utca 2.</p>
                </div>
 
+               
+                
             </div>
         </div>
    </footer>
 
 </body>
 </html>
+S
+
+<script type="text/javascript">
+     $("#save").click(function () {
+         //eltünteti a gombokat 
+         document.getElementById("save").style.display = "none";
+         document.getElementById("footer").style.display = "none";
+		 document.getElementById("head").style.display = "none";
+		 document.getElementById("merleg_head").innerHTML = "Mérleg";
+		 document.getElementById("er_kim_head").innerHTML = "Eredménykimutatás";
+         let doc = new jsPDF('p', 'pt', 'a4'); 
+         doc.addHTML(document.body, function () {
+             doc.save('testpoc.pdf');
+         });
+     });</script>
