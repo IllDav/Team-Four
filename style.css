@@ -83,16 +83,11 @@ body{
     width: 95%;
     margin-left: auto;
     margin-right: auto;
-
 }
 
-#eval{
-  text-align: center;
-  /*Az értékelő gomb stílusozása, nem biztos, hogy jó*/
-}
 
 .mutatok{
-    padding-bottom: 2px;
+    padding-bottom: 5px;
     border-bottom: 1px solid black;
     margin-bottom: 40px;
     text-align: center;
@@ -105,8 +100,27 @@ body{
 .resulthead{
     display: block;
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     text-align: center;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.resultrow{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 80%;
+}
+
+.left{
+  margin-right: 80px;
+  font-weight: bold;
+}
+
+.right{
+  text-align: right;
+  float: right;
 }
 /*FOOTER*/
 
