@@ -52,13 +52,13 @@ export class Evaluation extends Application {
 		var l1_text = "";
 		
 		if(lik1 < 0.4){
-			l1_text = "bla bla Likviditás rossz";
+			l1_text = "A vállalat likviditása rossz, gondjai lehetnek a tartozások kiegyenlítéseivel.";
 		}
 		else if(lik1 >= 0.4 && lik1 < 0.7){
-			l1_text = "bla bla Likviditás elfogadható";
+			l1_text = "A vállalat elfogadható mértékben rendelkezik forgóeszközzel a rövid kötelezettségekkel szemben.";
 		}
 		else{
-			l1_text = "bla bla Likviditás jó";
+			l1_text = "Jó a vállalat likviditása.";
 		}
         likv1_text.textContent = l1_text;
 		
@@ -78,13 +78,13 @@ export class Evaluation extends Application {
 		var l3_text = "";
 		
 		if(lik3 < 0.4){
-			l3_text = "bla bla Likviditás rossz";
+			l3_text = "A vállalat a legkönnyebben eladható eszközeivel nehezen tudja finanszírozni a rövid lej. tartozásait.";
 		}
 		else if(lik3 >= 0.4 && lik3 < 0.7){
-			l3_text = "bla bla Likviditás elfogadható";
+			l3_text = "A likvid fizetőeszközök elfogadható mértékben nyújt fedezetet a rövid lej. kötelezettségekhez.";
 		}
 		else{
-			l3_text = "bla bla Likviditás jó";
+			l3_text = "Az azonnali fizetőképessége a vállalatnak megfelelő mértékű.";
 		}
         likv3_text.textContent = l3_text;
         this.canvas.appendChild(likv3_text);
@@ -104,13 +104,13 @@ export class Evaluation extends Application {
 		var s_text = "";
 		
 		if(s < 0.3){
-			s_text = "bla bla STA rossz";
+			s_text = "A vállalat nagyban függ az idegen tőkétől.";
 		}
 		else if(s >= 0.3 && s < 0.6){
-			s_text = "bla bla STA elfogadható";
+			s_text = "Elfogadható mértékű az saját tőke aránya.";
 		}
 		else{
-			s_text = "bla bla STA jó";
+			s_text = "A vállalat nagyrészben saját tőkével finanszírozza az eszközeit. Kicsi az eladósodottság mértéke.";
 		}
         sta_text.textContent = s_text;
         //---------------------------------------     
@@ -129,13 +129,13 @@ export class Evaluation extends Application {
 		var i_text = "";
 		
 		if(i < 0.3){
-			i_text = "bla bla ITA jó";
+			i_text = "A vállalat nem függ a külső tőkétől.";
 		}
 		else if(i >= 0.3 && i < 0.7){
-			i_text = "bla bla ITA elfogadható";
+			i_text = "A vállalat nagyjából egyenlően osztja el a saját és az idegen tőke arányát.";
 		}
 		else{
-			i_text = "bla bla ITA rossz";
+			i_text = "Magas az eladósodottság. Érdemes a jövőben kerülni a külső források igénybevételét.";
 		}
         ita_text.textContent = i_text;
 		
