@@ -11,10 +11,12 @@ export class Evaluation extends Application {
 	//Amint rányomunk az Értékelés gombra, ez a függvény fut le
     initialize() {
 		document.getElementById('eval').style.display = 'none';
+		
+		document.getElementById('eredmenyek').style.display = 'block';
 
-        const h11 = document.createElement('h1');
-        this.canvas.appendChild(h11);
-        h11.textContent = 'Értékelés';
+        // const h11 = document.createElement('h1');
+        // this.canvas.appendChild(h11);
+        // h11.textContent = 'Értékelés';
 
 		//Itt létrehozzuk a változókat, és egyenlővé tesszük a megfelelő input mezőbe írt értékekkel
 		let fEszk = document.getElementById('forgEszk').value;   //változó = input a html-ből
@@ -36,19 +38,9 @@ export class Evaluation extends Application {
         let szemely_jel_raford = document.getElementById("szemely_jel_raford").value;
         let uzem_eredmeny = document.getElementById("uzem_eredmeny").value;
         let ossz_koltseg = document.getElementById("ossz_koltseg").value;
-
-
-		const l1_label = document.createElement('label');
-        this.canvas.appendChild(l1_label);
-        l1_label.textContent = 'Likviditás I.:';
-
-		const likv1 = document.createElement('p');
-        this.canvas.appendChild(likv1);
+		
+		
 		var lik1 = fEszk / rlk;
-        likv1.textContent = (lik1 * 100).toFixed(2) + '%';
-
-		const likv1_text = document.createElement('p');
-        this.canvas.appendChild(likv1_text);
 		var l1_text = "";
 
 		if(lik1 < 0.4){
@@ -60,21 +52,15 @@ export class Evaluation extends Application {
 		else{
 			l1_text = "Jó a vállalat likviditása!";
 		}
-        likv1_text.textContent = l1_text;
+		
+		document.getElementById('likvid1Label').innerHTML = 'Likviditás I.:';
+		document.getElementById('likvid1Value').innerHTML = (lik1 * 100).toFixed(2) + '%';
+		document.getElementById('likvid1Valuation').innerHTML = l1_text;
 
 
         //---------------------------------------
 
-        const l3_label = document.createElement('label');
-        this.canvas.appendChild(l3_label);
-        l3_label.textContent = 'Likviditás III.:';
-
-        const likv3 = document.createElement('p');
-        this.canvas.appendChild(likv3);
 		var lik3 = (pEszk + ePapir) / rlk;
-        likv3.textContent = (lik3*100).toFixed(2) + '%';
-
-		const likv3_text = document.createElement('p');
 		var l3_text = "";
 
 		if(lik3 < 0.4){
@@ -86,21 +72,14 @@ export class Evaluation extends Application {
 		else{
 			l3_text = "Az azonnali fizetőképessége a vállalatnak jó, azonnali törlesztésre is képes!";
 		}
-        likv3_text.textContent = l3_text;
-        this.canvas.appendChild(likv3_text);
+		
+		document.getElementById('likvid3Label').innerHTML = 'Likviditás III.:';
+		document.getElementById('likvid3Value').innerHTML = (lik3*100).toFixed(2) + '%';
+		document.getElementById('likvid3Valuation').innerHTML = l1_text;
+		
         //---------------------------------------
 
-        const sta_label = document.createElement('label');
-        this.canvas.appendChild(sta_label);
-        sta_label.textContent = 'Saját tőke aránya:';
-
-        const sta = document.createElement('p');
-        this.canvas.appendChild(sta);
 		var s = sToke/osszF;
-        sta.textContent = (s*100).toFixed(2) + '%';
-
-		const sta_text = document.createElement('p');
-        this.canvas.appendChild(sta_text);
 		var s_text = "";
 
 		if(s < 0.3){
@@ -112,20 +91,14 @@ export class Evaluation extends Application {
 		else{
 			s_text = "A vállalat nagyrészben saját tőkével finanszírozza az eszközeit, kerülve a tőkéje elidegenedését!";
 		}
-        sta_text.textContent = s_text;
+		
+		document.getElementById('staLabel').innerHTML = 'Saját tőke aránya:';
+		document.getElementById('staValue').innerHTML = (s*100).toFixed(2) + '%';
+		document.getElementById('staValuation').innerHTML = s_text;
         //---------------------------------------
 
-        const ita_label = document.createElement('label');
-        this.canvas.appendChild(ita_label);
-        ita_label.textContent = 'Idegen tőke aránya:';
 
-        const ita = document.createElement('p');
-        this.canvas.appendChild(ita);
 		var i = kot/sToke;
-        ita.textContent = (i*100).toFixed(2) + '%';
-
-		const ita_text = document.createElement('p');
-        this.canvas.appendChild(ita_text);
 		var i_text = "";
 
 		if(i < 0.3){
@@ -137,21 +110,14 @@ export class Evaluation extends Application {
 		else{
 			i_text = "Magas az eladósodottság. Érdemes a jövőben mérsékelni a külső források igénybevételét!";
 		}
-        ita_text.textContent = i_text;
+		document.getElementById('itaLabel').innerHTML = 'Idegen tőke aránya:';
+		document.getElementById('itaValue').innerHTML = (i*100).toFixed(2) + '%';
+		document.getElementById('itaValuation').innerHTML = i_text;
 
         //---------------------------------------
 
-        const hta_label = document.createElement('label');
-        this.canvas.appendChild(hta_label);
-        hta_label.textContent = 'Hosszú távú adósság:';
 
-        const hta = document.createElement('p');
-        this.canvas.appendChild(hta);
 		var ha = hlk/(hlk + sToke);
-        hta.textContent = (ha*100).toFixed(2) + '%';
-
-		const hta_text = document.createElement('p');
-        this.canvas.appendChild(hta_text);
 		var ha_text = "";
 
 		if(ha < 0.3){
@@ -163,21 +129,14 @@ export class Evaluation extends Application {
 		else{
 			ha_text = "A vállalat veszélyes, csődközeli helyzetbe is kerülhet! Érdemes megvizsgálni a felvett hitelek céljait!";
 		}
-        hta_text.textContent = ha_text;
+		document.getElementById('htaLabel').innerHTML = 'Hosszú távú adósság:';
+		document.getElementById('htaValue').innerHTML = (ha*100).toFixed(2) + '%';
+		document.getElementById('htaValuation').innerHTML = ha_text;
 
         //---------------------------------------
 
-        const mph_label = document.createElement('label');
-        this.canvas.appendChild(mph_label);
-        mph_label.textContent = 'Működési profithányad:';
 
-        const mph = document.createElement('p');
-        this.canvas.appendChild(mph);
 		var mp = uzem_eredmeny/ert_net_arb;
-        mph.textContent = (mp*100).toFixed(2) + '%';
-
-		const mph_text = document.createElement('p');
-        this.canvas.appendChild(mph_text);
 		var mp_text = "";
 
 		if(mp < 0.3){
@@ -189,21 +148,14 @@ export class Evaluation extends Application {
 		else{
 			mp_text = "Az egységnyi árbevételre vetített jövedelmezőség egészen kedvező!";
 		}
-        mph_text.textContent = mp_text;
+		document.getElementById('mphLabel').innerHTML = 'Működési profithányad';
+		document.getElementById('mphValue').innerHTML = (mp*100).toFixed(2) + '%';
+		document.getElementById('mphValuation').innerHTML = mp_text;
 
        //---------------------------------------
 
-        const ros_label = document.createElement('label');
-        this.canvas.appendChild(ros_label);
-        ros_label.textContent = 'Nettó profithányad (ROS):';
 
-        const ros = document.createElement('p');
-        this.canvas.appendChild(ros);
 		var rs = aEred/ert_net_arb;
-        ros.textContent = (rs*100).toFixed(2) + '%';
-
-		const ros_text = document.createElement('p');
-        this.canvas.appendChild(ros_text);
 		var rs_text = "";
 
 		if(rs < 0.3){
@@ -215,21 +167,13 @@ export class Evaluation extends Application {
 		else{
 			rs_text = "Az összes bevétel kiemelkedő mértékű profitabilitást mutat!";
 		}
-        ros_text.textContent = rs_text;
+		document.getElementById('nphLabel').innerHTML = 'Nettó profithányad';
+		document.getElementById('nphValue').innerHTML = (rs*100).toFixed(2) + '%';
+		document.getElementById('nphValuation').innerHTML = rs_text;
 
         //---------------------------------------
 
-        const roa_label = document.createElement('label');
-        this.canvas.appendChild(roa_label);
-        roa_label.textContent = 'Eszközarányos adózott eredmény (ROA):';
-
-        const roa = document.createElement('p');
-        this.canvas.appendChild(roa);
 		var ra = aEred/osszE;
-        roa.textContent = (ra*100).toFixed(2) + '%';
-
-		const roa_text = document.createElement('p');
-        this.canvas.appendChild(roa_text);
 		var ra_text = "";
 
 		if(ra < 0.3){
@@ -241,21 +185,14 @@ export class Evaluation extends Application {
 		else{
 			ra_text = "A vállalat az eszközeit a lehető leghatékonyabban használja fel!";
 		}
-        roa_text.textContent = ra_text;
+		document.getElementById('roaLabel').innerHTML = 'Eszközarányos megtérülés';
+		document.getElementById('roaValue').innerHTML = (ra*100).toFixed(2) + '%';
+		document.getElementById('roaValuation').innerHTML = ra_text;
 
         //---------------------------------------
 
-        const roe_label = document.createElement('label');
-        this.canvas.appendChild(roe_label);
-        roe_label.textContent = 'Sajáttőke-arányos adózott eredmény (ROE):';
 
-        const roe = document.createElement('p');
-        this.canvas.appendChild(roe);
 		var re = aEred/sToke;
-        roe.textContent = (re*100).toFixed(2) + '%';
-
-		const roe_text = document.createElement('p');
-        this.canvas.appendChild(roe_text);
 		var re_text = "";
 
 		if(re < 0.3){
@@ -267,22 +204,14 @@ export class Evaluation extends Application {
 		else{
 			re_text = "A saját tőke megtérülése kiemelkedő mértékű!";
 		}
-        roe_text.textContent = re_text;
-
+		document.getElementById('roeLabel').innerHTML = 'Tőkearányos megtérülés';
+		document.getElementById('roeValue').innerHTML = (re*100).toFixed(2) + '%';
+		document.getElementById('roeValuation').innerHTML = re_text;
 
         //---------------------------------------
 
-        const any_label = document.createElement('label');
-        this.canvas.appendChild(any_label);
-        any_label.textContent = 'Árbevétel arányos nyereség:';
 
-        const arbev_nyer = document.createElement('p');
-        this.canvas.appendChild(arbev_nyer);
 		var any = aEred/ert_net_arb;
-        arbev_nyer.textContent = (any*100).toFixed(2) + '%';
-
-		const any_text = document.createElement('p');
-        this.canvas.appendChild(any_text);
 		var aany_text = "";
 
 		if(any < 0.3){
@@ -294,23 +223,13 @@ export class Evaluation extends Application {
 		else{
 			aany_text = "A bevétel majdnem egésze profitként realizálódik!";
 		}
-        any_text.textContent = aany_text;
-
-
+		document.getElementById('anyLabel').innerHTML = 'Árbevétel arányos nyereség';
+		document.getElementById('anyValue').innerHTML = (any*100).toFixed(2) + '%';
+		document.getElementById('anyValuation').innerHTML = aany_text;
 
         //---------------------------------------
 
-        const ajr_label = document.createElement('label');
-        this.canvas.appendChild(ajr_label);
-        ajr_label.textContent = 'Anyagjellegű ráfordítások aránya:';
-
-        const anyag_rf = document.createElement('p');
-        this.canvas.appendChild(anyag_rf);
 		var arf = (anyag_kolt + igenybe_szolg + egyeb_szolg)/ossz_koltseg;
-        anyag_rf.textContent = (arf*100).toFixed(2) + '%';
-
-		const ajr_text = document.createElement('p');
-        this.canvas.appendChild(ajr_text);
 		var ar_text = "";
 
 		if(arf < 0.3){
@@ -322,23 +241,14 @@ export class Evaluation extends Application {
 		else{
 			ar_text = "Nagy mértékű az anyagjellegű ráfordítások aránya az összes költséghez képest!";
 		}
-        ajr_text.textContent = ar_text;
-
+		document.getElementById('ajrLabel').innerHTML = 'Anyagjellegű ráfordítások aránya';
+		document.getElementById('ajrValue').innerHTML = (arf*100).toFixed(2) + '%';
+		document.getElementById('ajrValuation').innerHTML = ar_text;
 
 
         //---------------------------------------
 
-        const szrf_label = document.createElement('label');
-        this.canvas.appendChild(szrf_label);
-        szrf_label.textContent = 'Személyi jellegű réfordítások:';
-
-        const szemelyi_rf = document.createElement('p');
-        this.canvas.appendChild(szemelyi_rf);
 		var szrf = szemely_jel_raford/ossz_koltseg;
-        szemelyi_rf.textContent = (szrf*100).toFixed(2) + '%';
-
-		const szrf_text = document.createElement('p');
-        this.canvas.appendChild(szrf_text);
 		var szr_text = "";
 
 		if(szrf < 0.3){
@@ -350,8 +260,9 @@ export class Evaluation extends Application {
 		else{
 			szr_text = "A humán erőforrás költségei nagy részarányt képviselnek az összes költségben!";
 		}
-        szrf_text.textContent = szr_text;
-
+		document.getElementById('szjrLabel').innerHTML = 'Személyi jellegű ráfordítások aránya';
+		document.getElementById('szjrValue').innerHTML = (szrf*100).toFixed(2) + '%';
+		document.getElementById('szjrValuation').innerHTML = szr_text;
 
 
         //---------------------------------------
