@@ -53,7 +53,7 @@ export class Evaluation extends Application {
 			l1_text = "Jó a vállalat likviditása!";
 		}
 		
-		document.getElementById('likvid1Label').innerHTML = 'Likviditás I.:';
+		document.getElementById('likvid1Label').innerHTML = 'Likviditás I.';
 		document.getElementById('likvid1Value').innerHTML = (lik1 * 100).toFixed(2) + '%';
 		document.getElementById('likvid1Valuation').innerHTML = l1_text;
 
@@ -73,7 +73,7 @@ export class Evaluation extends Application {
 			l3_text = "Az azonnali fizetőképessége a vállalatnak jó, azonnali törlesztésre is képes!";
 		}
 		
-		document.getElementById('likvid3Label').innerHTML = 'Likviditás III.:';
+		document.getElementById('likvid3Label').innerHTML = 'Likviditás III.';
 		document.getElementById('likvid3Value').innerHTML = (lik3*100).toFixed(2) + '%';
 		document.getElementById('likvid3Valuation').innerHTML = l1_text;
 		
@@ -92,7 +92,7 @@ export class Evaluation extends Application {
 			s_text = "A vállalat nagyrészben saját tőkével finanszírozza az eszközeit, kerülve a tőkéje elidegenedését!";
 		}
 		
-		document.getElementById('staLabel').innerHTML = 'Saját tőke aránya:';
+		document.getElementById('staLabel').innerHTML = 'Saját tőke aránya';
 		document.getElementById('staValue').innerHTML = (s*100).toFixed(2) + '%';
 		document.getElementById('staValuation').innerHTML = s_text;
         //---------------------------------------
@@ -110,7 +110,7 @@ export class Evaluation extends Application {
 		else{
 			i_text = "Magas az eladósodottság. Érdemes a jövőben mérsékelni a külső források igénybevételét!";
 		}
-		document.getElementById('itaLabel').innerHTML = 'Idegen tőke aránya:';
+		document.getElementById('itaLabel').innerHTML = 'Idegen tőke aránya';
 		document.getElementById('itaValue').innerHTML = (i*100).toFixed(2) + '%';
 		document.getElementById('itaValuation').innerHTML = i_text;
 
@@ -129,7 +129,7 @@ export class Evaluation extends Application {
 		else{
 			ha_text = "A vállalat veszélyes, csődközeli helyzetbe is kerülhet! Érdemes megvizsgálni a felvett hitelek céljait!";
 		}
-		document.getElementById('htaLabel').innerHTML = 'Hosszú távú adósság:';
+		document.getElementById('htaLabel').innerHTML = 'Hosszú távú adósság';
 		document.getElementById('htaValue').innerHTML = (ha*100).toFixed(2) + '%';
 		document.getElementById('htaValuation').innerHTML = ha_text;
 
