@@ -11,11 +11,14 @@ export class InputScreen extends Application {
 
     initialize() {
 
-        const evaluate = document.createElement('button');
-        evaluate.className="btn btn-outline-dark";
-        this.canvas.appendChild(evaluate);
-        evaluate.textContent = 'Értékelés';
-        evaluate.id = 'eval';
+      const parent = document.createElement('div');
+      parent.className = 'text-center';
+      const evaluate = document.createElement('button');
+      evaluate.className="btn btn-outline-dark";
+      evaluate.textContent = 'Értékelés';
+      evaluate.id = 'eval';
+      parent.appendChild(evaluate);
+      this.canvas.appendChild(parent);
 
 		let next;
 
