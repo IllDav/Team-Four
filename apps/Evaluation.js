@@ -52,10 +52,10 @@ export class Evaluation extends Application {
 		var l1_text = "";
 
 		if(lik1 < 0.4){
-			l1_text = "A vállalat likviditása rossz, gondjai lehetnek a tartozások kiegyenlítéseivel!";
+			l1_text = "A vállalat likviditása rossz, gondjai lehetnek a tartozások gyors kiegyenlítéseivel!";
 		}
 		else if(lik1 >= 0.4 && lik1 < 0.7){
-			l1_text = "A vállalat elfogadható mértékben rendelkezik forgóeszközzel a rövid kötelezettségekkel szemben!";
+			l1_text = "A vállalat elfogadható mértékben rendelkezik forgóeszközzel ahhoz, hogy törlessze rövid lejáratú kötelezettségeit!";
 		}
 		else{
 			l1_text = "Jó a vállalat likviditása!";
@@ -78,13 +78,13 @@ export class Evaluation extends Application {
 		var l3_text = "";
 
 		if(lik3 < 0.4){
-			l3_text = "A vállalat a legkönnyebben eladható eszközeivel nehezen tudja finanszírozni a rövid lej. tartozásait!";
+			l3_text = "A vállalat a legkönnyebben eladható eszközeivel nehezen tudja finanszírozni a rövid lej. kötelezettségeit!";
 		}
 		else if(lik3 >= 0.4 && lik3 < 0.7){
 			l3_text = "A likvid fizetőeszközök elfogadható mértékben nyújt fedezetet a rövid lej. kötelezettségekhez!";
 		}
 		else{
-			l3_text = "Az azonnali fizetőképessége a vállalatnak megfelelő mértékű!";
+			l3_text = "Az azonnali fizetőképessége a vállalatnak jó, azonnali törlesztésre is képes!";
 		}
         likv3_text.textContent = l3_text;
         this.canvas.appendChild(likv3_text);
@@ -107,10 +107,10 @@ export class Evaluation extends Application {
 			s_text = "A vállalat nagyban függ az idegen tőkétől!";
 		}
 		else if(s >= 0.3 && s < 0.6){
-			s_text = "Elfogadható mértékű az saját tőke aránya!";
+			s_text = "A tulajdonosok önfinanszírozó képessége elfogadható mértékű a tőkebiztonság szempontjából!";
 		}
 		else{
-			s_text = "A vállalat nagyrészben saját tőkével finanszírozza az eszközeit. Kicsi az eladósodottság mértéke!";
+			s_text = "A vállalat nagyrészben saját tőkével finanszírozza az eszközeit, kerülve a tőkéje elidegenedését!";
 		}
         sta_text.textContent = s_text;
         //---------------------------------------
@@ -135,7 +135,7 @@ export class Evaluation extends Application {
 			i_text = "A vállalat nagyjából egyenlően osztja el a saját és az idegen tőke arányát!";
 		}
 		else{
-			i_text = "Magas az eladósodottság. Érdemes a jövőben kerülni a külső források igénybevételét!";
+			i_text = "Magas az eladósodottság. Érdemes a jövőben mérsékelni a külső források igénybevételét!";
 		}
         ita_text.textContent = i_text;
 
@@ -155,13 +155,13 @@ export class Evaluation extends Application {
 		var ha_text = "";
 
 		if(ha < 0.3){
-			ha_text = "Alacsony a hosszú lej. tartozások aránya a saját tőkéhez. Alacsony külső függés!";
+			ha_text = "Alacsony a hosszú lej. kötelezettségek aránya a saját tőkéhez képest, kevés tartozás!";
 		}
 		else if(ha >= 0.3 && ha < 0.6){
-			ha_text = "Elfogadható mértékű a hosszú lej. tartozások és a saját tőke aránya!";
+			ha_text = "Érdemes több figyelmet szánni a hosszabb távú kölcsönök törlesztésére!";
 		}
 		else{
-			ha_text = "Magas a hosszú távú tartozások aránya! Érdemes megvizsgálni a felvett hitelek céljait!";
+			ha_text = "A vállalat veszélyes, csődközeli helyzetbe is kerülhet! Érdemes megvizsgálni a felvett hitelek céljait!";
 		}
         hta_text.textContent = ha_text;
 
@@ -187,7 +187,7 @@ export class Evaluation extends Application {
 			mp_text = "Egységnyi árbevétel elfogadható mértékű eredményt realizál!";
 		}
 		else{
-			mp_text = "Egységnyi árbevétel megfelelő mértékű eredményt realizál!";
+			mp_text = "Az egységnyi árbevételre vetített jövedelmezőség egészen kedvező!";
 		}
         mph_text.textContent = mp_text;
 
@@ -207,13 +207,13 @@ export class Evaluation extends Application {
 		var rs_text = "";
 
 		if(rs < 0.3){
-			rs_text = "Az összes bevétel jövedelmezősége rossz!";
+			rs_text = "Az összes bevételhez képest a jövedelmezőség rossz!";
 		}
 		else if(rs >= 0.3 && rs < 0.6){
 			rs_text = "Elfogadható mértékű az összes bevétel jövedelmezőségének mértéke!";
 		}
 		else{
-			rs_text = "Az összes bevétel jövedelmezősége kiemelkedő mértékű!";
+			rs_text = "Az összes bevétel kiemelkedő mértékű profitabilitást mutat!";
 		}
         ros_text.textContent = rs_text;
 
@@ -236,10 +236,10 @@ export class Evaluation extends Application {
 			ra_text = "Gyenge az eszközfelhasználás hatékonysága!";
 		}
 		else if(ra >= 0.3 && ra < 0.6){
-			ra_text = "Elfogadható mértékű az eszközfelhasználás mértéke!";
+			ra_text = "Elfogadható mértékű az eszközfelhasználás hatékonysága!";
 		}
 		else{
-			ra_text = "Megfelelő mértékű az eszközfelhasználás mértéke!";
+			ra_text = "A vállalat az eszközeit a lehető leghatékonyabban használja fel!";
 		}
         roa_text.textContent = ra_text;
 
@@ -270,8 +270,6 @@ export class Evaluation extends Application {
         roe_text.textContent = re_text;
 
 
-
-
         //---------------------------------------
 
         const any_label = document.createElement('label');
@@ -288,13 +286,13 @@ export class Evaluation extends Application {
 		var aany_text = "";
 
 		if(any < 0.3){
-			aany_text = "A bevétel kis százaléka nyereség!";
+			aany_text = "A bevételnek csak kevés százaléka nyereség!";
 		}
 		else if(any >= 0.3 && any < 0.6){
-			aany_text = "A bevétel elfogadható mértékben nyereség!";
+			aany_text = "A bevétel elfogadható mértékben megmarad nyereségnek!";
 		}
 		else{
-			aany_text = "A bevételből nagyrészben marad nyereség!";
+			aany_text = "A bevétel majdnem egésze profitként realizálódik!";
 		}
         any_text.textContent = aany_text;
 
@@ -316,13 +314,13 @@ export class Evaluation extends Application {
 		var ar_text = "";
 
 		if(arf < 0.3){
-			ar_text = "Az anyagjellegűk aránya kevés az összes költségekhez képest!";
+			ar_text = "A vállalat viszonylag keveset költött anyagjellegű termékekre!";
 		}
 		else if(arf >= 0.3 && arf < 0.6){
-			ar_text = "Az anyagjellegűk aránya közepes az összes költségekhez képest!";
+			ar_text = "Az anyagjellegű ráfordítások közepes mértékben jelentősek az összes költséget tekintve!";
 		}
 		else{
-			ar_text = "Nagy mértékű az anyagjellegűk aránya az összes költségekhez képest!";
+			ar_text = "Nagy mértékű az anyagjellegű ráfordítások aránya az összes költséghez képest!";
 		}
         ajr_text.textContent = ar_text;
 
@@ -344,13 +342,13 @@ export class Evaluation extends Application {
 		var szr_text = "";
 
 		if(szrf < 0.3){
-			szr_text = "Az személyijellegűek aránya kevés az összes költségekhez képest!";
+			szr_text = "A vállalatra nem jellemző a humán erőforrás központú működés!";
 		}
 		else if(szrf >= 0.3 && szrf < 0.6){
-			szr_text = "Az személyijellegűek aránya közepes az összes költségekhez képest!";
+			szr_text = "A személyi jellegű ráfordításokban nincs kiugró érték!";
 		}
 		else{
-			szr_text = "Az személyijellegűek aránya magas az összes költségekhez képest!";
+			szr_text = "A humán erőforrás költségei nagy részarányt képviselnek az összes költségben!";
 		}
         szrf_text.textContent = szr_text;
 
