@@ -29,12 +29,6 @@ export class InputScreen extends Application {
 
     }
 
-	update() {
-	}
-
-	cleaner(elementID){
-		document.getElementById(elementID).innerHTML = "";
-	}
 }
 
 export default InputScreen;

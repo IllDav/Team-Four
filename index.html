@@ -22,7 +22,6 @@
 			function showFunc() {
 				document.getElementById("merleg").style.display = "block";
 				document.getElementById("eredmenykimutatas").style.display = "block";
-				//document.getElementById("eredmenyek").style.display = "block";
 			}
 			</script>
         </header>
@@ -244,12 +243,11 @@
 
 <script type="text/javascript">
      $("#save").click(function () {
-         //eltünteti a gombokat
+         //eltünteti a gombokat meg mindent
          document.getElementById("save").style.display = "none";
-         document.getElementById("footer").style.display = "none";
 		 document.getElementById("head").style.display = "none";
-		 document.getElementById("merleg_head").innerHTML = "Mérleg";
-		 document.getElementById("er_kim_head").innerHTML = "Eredménykimutatás";
+		 document.getElementById("merleg").style.display = "none";
+		 document.getElementById("eredmenykimutatas").style.display = "none";
          let doc = new jsPDF('p', 'pt', 'a4');
          doc.addHTML(document.body, function () {
              doc.save('testpoc.pdf');

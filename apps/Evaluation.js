@@ -14,10 +14,6 @@ export class Evaluation extends Application {
 		
 		document.getElementById('eredmenyek').style.display = 'block';
 
-        // const h11 = document.createElement('h1');
-        // this.canvas.appendChild(h11);
-        // h11.textContent = 'Értékelés';
-
 		//Itt létrehozzuk a változókat, és egyenlővé tesszük a megfelelő input mezőbe írt értékekkel
 		let fEszk = document.getElementById('forgEszk').value;   //változó = input a html-ből
 		let ePapir = document.getElementById('ertPap').value;
@@ -44,13 +40,13 @@ export class Evaluation extends Application {
 		var l1_text = "";
 
 		if(lik1 < 0.4){
-			l1_text = "A vállalat likviditása rossz, gondjai lehetnek a tartozások gyors kiegyenlítéseivel!";
+			l1_text = "A vállalatnak gondjai lehetnek a tartozások gyors kiegyenlítésével.";
 		}
 		else if(lik1 >= 0.4 && lik1 < 0.7){
-			l1_text = "A vállalat elfogadható mértékben rendelkezik forgóeszközzel ahhoz, hogy törlessze rövid lejáratú kötelezettségeit!";
+			l1_text = "A vállalat elfogadható mértékben rendelkezik forgóeszközzel ahhoz, hogy törlessze rövid lejáratú kötelezettségeit.";
 		}
 		else{
-			l1_text = "Jó a vállalat likviditása!";
+			l1_text = "A vállalat fizetőképessége naprakész, likviditása stabil!";
 		}
 		
 		document.getElementById('likvid1Label').innerHTML = 'Likviditás I.';
@@ -59,23 +55,23 @@ export class Evaluation extends Application {
 
 
         //---------------------------------------
-
-		var lik3 = (pEszk + ePapir) / rlk;
+		
+		var lik3 = (+pEszk + +ePapir) / rlk;
 		var l3_text = "";
 
 		if(lik3 < 0.4){
-			l3_text = "A vállalat a legkönnyebben eladható eszközeivel nehezen tudja finanszírozni a rövid lej. kötelezettségeit!";
+			l3_text = "A vállalat a legkönnyebben eladható eszközeivel is nehezen tudja visszafizetni a kötelezettségeit.";
 		}
 		else if(lik3 >= 0.4 && lik3 < 0.7){
-			l3_text = "A likvid fizetőeszközök elfogadható mértékben nyújt fedezetet a rövid lej. kötelezettségekhez!";
+			l3_text = "A likvid fizetőeszközök elfogadható mértékben nyújtanak fedezetet a folyamatosan felmerülő kötelezettségekhez.";
 		}
 		else{
-			l3_text = "Az azonnali fizetőképessége a vállalatnak jó, azonnali törlesztésre is képes!";
+			l3_text = "A meglévő folyóeszközeiből képes kiegyenlíteni a folyamatosan felmerülő kötelezettségeit.";
 		}
 		
 		document.getElementById('likvid3Label').innerHTML = 'Likviditás III.';
 		document.getElementById('likvid3Value').innerHTML = (lik3*100).toFixed(2) + '%';
-		document.getElementById('likvid3Valuation').innerHTML = l1_text;
+		document.getElementById('likvid3Valuation').innerHTML = l3_text;
 		
         //---------------------------------------
 
@@ -83,13 +79,13 @@ export class Evaluation extends Application {
 		var s_text = "";
 
 		if(s < 0.3){
-			s_text = "A vállalat nagyban függ az idegen tőkétől!";
+			s_text = "A vállalat nagy mértékben függ az idegen tőkétől!";
 		}
 		else if(s >= 0.3 && s < 0.6){
-			s_text = "A tulajdonosok önfinanszírozó képessége elfogadható mértékű a tőkebiztonság szempontjából!";
+			s_text = "A tulajdonosok önfinanszírozó képessége elfogadható mértékű a tőkebiztonság szempontjából.";
 		}
 		else{
-			s_text = "A vállalat nagyrészben saját tőkével finanszírozza az eszközeit, kerülve a tőkéje elidegenedését!";
+			s_text = "A vállalat nagyrészben saját forrásból finanszírozza az eszközeit, kerülve a tőkéje elidegenedését.";
 		}
 		
 		document.getElementById('staLabel').innerHTML = 'Saját tőke aránya';
@@ -102,13 +98,13 @@ export class Evaluation extends Application {
 		var i_text = "";
 
 		if(i < 0.3){
-			i_text = "A vállalat nem függ a külső tőkétől!";
+			i_text = "A vállalat nem különösebben függ a külsőleg bevont tőkétől.";
 		}
 		else if(i >= 0.3 && i < 0.7){
-			i_text = "A vállalat nagyjából egyenlően osztja el a saját és az idegen tőke arányát!";
+			i_text = "A vállalat nagyjából egyenlően osztja el a saját és az idegen tőke arányát.";
 		}
 		else{
-			i_text = "Magas az eladósodottság. Érdemes a jövőben mérsékelni a külső források igénybevételét!";
+			i_text = "Magas az eladósodottság más finanszírozók felé. Érdemes a jövőben mérsékelni a külső források igénybevételét!";
 		}
 		document.getElementById('itaLabel').innerHTML = 'Idegen tőke aránya';
 		document.getElementById('itaValue').innerHTML = (i*100).toFixed(2) + '%';
@@ -117,17 +113,17 @@ export class Evaluation extends Application {
         //---------------------------------------
 
 
-		var ha = hlk/(hlk + sToke);
+		var ha = hlk/(+hlk + +sToke);
 		var ha_text = "";
 
 		if(ha < 0.3){
-			ha_text = "Alacsony a hosszú lej. kötelezettségek aránya a saját tőkéhez képest, kevés tartozás!";
+			ha_text = "A saját tőkéhez képest alacsony a hosszú lejáratú kötelezettségek aránya, kevés a tartozás.";
 		}
 		else if(ha >= 0.3 && ha < 0.6){
-			ha_text = "Érdemes több figyelmet szánni a hosszabb távú kölcsönök törlesztésére!";
+			ha_text = "Érdemes több figyelmet fordítani a vállalat hosszabb távú kölcsöneinek törlesztésére!";
 		}
 		else{
-			ha_text = "A vállalat veszélyes, csődközeli helyzetbe is kerülhet! Érdemes megvizsgálni a felvett hitelek céljait!";
+			ha_text = "A vállalat veszélyes, csődközeli helyzetbe is kerülhet. Érdemes megvizsgálni a felvett hitelek céljait!";
 		}
 		document.getElementById('htaLabel').innerHTML = 'Hosszú távú adósság';
 		document.getElementById('htaValue').innerHTML = (ha*100).toFixed(2) + '%';
@@ -140,13 +136,13 @@ export class Evaluation extends Application {
 		var mp_text = "";
 
 		if(mp < 0.3){
-			mp_text = "Egységnyi árbevétel alacsony mértékű eredményt realizál!";
+			mp_text = "Egységnyi árbevétel alacsony mértékű eredményt realizál.";
 		}
 		else if(mp >= 0.3 && mp < 0.6){
-			mp_text = "Egységnyi árbevétel elfogadható mértékű eredményt realizál!";
+			mp_text = "Egységnyi árbevétel elfogadható mértékű eredményt realizál.";
 		}
 		else{
-			mp_text = "Az egységnyi árbevételre vetített jövedelmezőség egészen kedvező!";
+			mp_text = "Az egységnyi árbevételre vetített jövedelmezőség egészen kedvező.";
 		}
 		document.getElementById('mphLabel').innerHTML = 'Működési profithányad';
 		document.getElementById('mphValue').innerHTML = (mp*100).toFixed(2) + '%';
@@ -159,13 +155,13 @@ export class Evaluation extends Application {
 		var rs_text = "";
 
 		if(rs < 0.3){
-			rs_text = "Az összes bevételhez képest a jövedelmezőség rossz!";
+			rs_text = "Az összes költség levonása után a jövedelmezőség nem egészen kedvező.";
 		}
 		else if(rs >= 0.3 && rs < 0.6){
-			rs_text = "Elfogadható mértékű az összes bevétel jövedelmezőségének mértéke!";
+			rs_text = "Adózás és a költségek fizetése után a bevétel mérsékelten jövedelmező.";
 		}
 		else{
-			rs_text = "Az összes bevétel kiemelkedő mértékű profitabilitást mutat!";
+			rs_text = "Az összes bevétel kiemelkedő mértékű profitabilitást mutat a költségek levonása után is.";
 		}
 		document.getElementById('nphLabel').innerHTML = 'Nettó profithányad';
 		document.getElementById('nphValue').innerHTML = (rs*100).toFixed(2) + '%';
@@ -177,13 +173,13 @@ export class Evaluation extends Application {
 		var ra_text = "";
 
 		if(ra < 0.3){
-			ra_text = "Gyenge az eszközfelhasználás hatékonysága!";
+			ra_text = "Gyenge az eszközfelhasználás hatékonysága.";
 		}
 		else if(ra >= 0.3 && ra < 0.6){
-			ra_text = "Elfogadható mértékű az eszközfelhasználás hatékonysága!";
+			ra_text = "Elfogadható mértékű az eszközfelhasználás hatékonysága.";
 		}
 		else{
-			ra_text = "A vállalat az eszközeit a lehető leghatékonyabban használja fel!";
+			ra_text = "A vállalat az eszközeit a lehető leghatékonyabban használja fel.";
 		}
 		document.getElementById('roaLabel').innerHTML = 'Eszközarányos megtérülés';
 		document.getElementById('roaValue').innerHTML = (ra*100).toFixed(2) + '%';
@@ -196,13 +192,13 @@ export class Evaluation extends Application {
 		var re_text = "";
 
 		if(re < 0.3){
-			re_text = "A saját tőke alacsony mértékben térül meg!";
+			re_text = "A saját tőke alacsony mértékben térül meg, a vállalat hozama túl alacsony.";
 		}
 		else if(re >= 0.3 && re < 0.6){
-			re_text = "A saját tőke elfogadható mértékben térül meg!";
+			re_text = "A saját tőke elfogadható mértékben térül meg.";
 		}
 		else{
-			re_text = "A saját tőke megtérülése kiemelkedő mértékű!";
+			re_text = "A vállalat nagy mértékű hozamot biztosított a tulajdonosoknak.";
 		}
 		document.getElementById('roeLabel').innerHTML = 'Tőkearányos megtérülés';
 		document.getElementById('roeValue').innerHTML = (re*100).toFixed(2) + '%';
@@ -215,13 +211,13 @@ export class Evaluation extends Application {
 		var aany_text = "";
 
 		if(any < 0.3){
-			aany_text = "A bevételnek csak kevés százaléka nyereség!";
+			aany_text = "A bevételnek csak kevés százaléka nyereség, nem igazán jövedelmező az értékesítés.";
 		}
 		else if(any >= 0.3 && any < 0.6){
-			aany_text = "A bevétel elfogadható mértékben megmarad nyereségnek!";
+			aany_text = "Az értékesítés csak mérsékelten volt jövedelmező.";
 		}
 		else{
-			aany_text = "A bevétel majdnem egésze profitként realizálódik!";
+			aany_text = "A bevétel majdnem egésze profitként realizálódik.";
 		}
 		document.getElementById('anyLabel').innerHTML = 'Árbevétel arányos nyereség';
 		document.getElementById('anyValue').innerHTML = (any*100).toFixed(2) + '%';
@@ -229,7 +225,7 @@ export class Evaluation extends Application {
 
         //---------------------------------------
 
-		var arf = (anyag_kolt + igenybe_szolg + egyeb_szolg)/ossz_koltseg;
+		var arf = (+anyag_kolt + +igenybe_szolg + +egyeb_szolg)/ossz_koltseg;
 		var ar_text = "";
 
 		if(arf < 0.3){
@@ -264,23 +260,6 @@ export class Evaluation extends Application {
 		document.getElementById('szjrValue').innerHTML = (szrf*100).toFixed(2) + '%';
 		document.getElementById('szjrValuation').innerHTML = szr_text;
 
-
-        //---------------------------------------
-
-		//Egyelőre nem fontos
-		// const save = document.createElement('button');
-        // this.canvas.appendChild(save);
-        // save.textContent = 'Mentés PDF-ként';
-        // save.id = 'savePDF';
-
-	}
-
-    update() {
-
-    }
-
-	printValuation() {
-		document.getElementById(elementID).innerHTML = "";
 	}
 }
 

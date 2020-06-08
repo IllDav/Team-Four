@@ -9,10 +9,6 @@ export class Application {
     constructor(canvas) {
         this.canvas = canvas;
 
-        // Clean canvas before loading app
-        // while (canvas.lastChild) {
-            // canvas.removeChild(canvas.lastChild);
-        // }
     }
 
     /**
@@ -20,10 +16,6 @@ export class Application {
      */
     initialize() {}
 
-    /**
-     * @abstract
-     */
-    update() {}
 }
 
 export default Application;
